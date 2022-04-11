@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
+
+:root {
+  --color-text: #737373;
+  --color-bg: #eee;
+  --color-green: #009868;
+  --color-blue: #1482b5;
+  --color-red: crimson;
+  --transition: 0.3s ease;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: inherit;
+  border: none;
+  outline: none;
+  list-style: none;
+}
+
+*::selection {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+li > span {
+  font-weight: 300;
+  cursor: default;
+}
+
+h4 {
+  font-weight: 500;
+}
+
+form {
+  padding: 1rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+input,
+button {
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+/* END GENERAL STYLES */
+
+.app__wrapper {
+  width: 60%;
+  margin-inline: auto;
+  margin-block: 5rem;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px 2px rgba(0, 0, 0, 0.4);
+}
+
+.app__header {
+  text-align: center;
+  padding: 1rem;
+  background: var(--color-bg);
+}
+
+.app__header > h1 {
+  color: var(--color-blue);
+  font-size: 3rem;
+}
+
+.app__header > h4 {
+  color: var(--color-green);
+  margin-top: 0.5rem;
+}
+
+.search {
+  border: 2px solid transparent;
+  color: var(--color-blue);
+  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+}
+
+.search::placeholder {
+  color: var(--color-text);
+}
+
+.search:hover,
+.search:focus {
+  border-color: var(--color-blue);
+}
+
+.app__content {
+  padding: 1rem;
+}
+
+.app__content > h1 {
+  color: var(--color-blue);
+}
+
+.app__list > li {
+  border-left: 5px solid #ddd;
+  padding: 0.8rem;
+  transition: var(--transition);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.app__list > li > span {
+  font-size: 1.5rem;
+  color: var(--color-text);
+  overflow-x: auto;
+}
+.app__list > li:hover span {
+  color: #000;
+}
+
+.app__list > li:hover {
+  background: #ddd;
+  border-color: var(--color-red) !important;
+}
+
+.app__list > li > button {
+  padding: 0.8rem;
+  border: 1px solid var(--color-red);
+  border-radius: 0.4rem;
+  color: var(--color-red);
+  font-size: 1rem;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.app__list > li:hover button {
+  opacity: 1;
+}
+
+.app__list > li > button:hover {
+  background-color: var(--color-red);
+  color: #fff;
+}
+
+.add-book {
+  padding: 0.6rem;
+  border: 2px solid #ccc;
+  border-right: none;
+  border-radius: 0.3rem 0 0 0.3rem;
+}
+
+.add-book:hover::placeholder,
+.add-book:focus::placeholder {
+  color: #fff;
+}
+
+.add-book:hover,
+.add-book:focus {
+  background: var(--color-green);
+  color: #fff;
+  border-color: var(--color-green);
+}
+
+.add-btn {
+  background: var(--color-green);
+  color: #fff;
+  padding: 0.6rem 1rem;
+  margin-left: -4px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+.add-btn:hover {
+  background: transparent;
+  border-color: var(--color-green);
+  color: var(--color-green);
+}
+
+.clear {
+  width: 100%;
+  color: #fff;
+  font-size: 1.6rem;
+  height: 3rem;
+  background: var(--color-blue);
+  transform: translateY(50px);
+}
+
+.clear:hover {
+  background: var(--color-red);
+}

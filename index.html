@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+    <script src="./assets/scripts/main.js" defer></script>
+    <title>todo list</title>
+  </head>
+  <body>
+    <div class="app">
+      <div class="app__wrapper">
+        <header class="app__header">
+          <h1>My Favorite Books</h1>
+          <h4>By: Mohamed Ragab</h4>
+
+          <form onsubmit="handelSubmit(event)">
+            <input
+              onkeyup="search(this)"
+              class="search"
+              type="text"
+              placeholder="Search your books"
+            />
+          </form>
+        </header>
+
+        <main class="app__content">
+          <h1>Books to read</h1>
+          <ul class="app__list"></ul>
+        </main>
+
+        <div>
+          <form onsubmit="addBook(event,this)">
+            <input
+              class="add-book"
+              type="text"
+              placeholder="Add you book"
+              required
+            />
+            <button class="add-btn">Add</button>
+          </form>
+
+          <button onclick="clearAll()" class="clear"></button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
