@@ -57,15 +57,10 @@ function deleteItem(e) {
 // Search items
 function search(e) {
   let lowerChar = e.value.toLowerCase();
-  let upperChar = e.value.toUpperCase();
 
   list.innerHTML = "";
   for (let i = 0; i < dataText.length; i++) {
-    if (
-      dataText[i].includes(lowerChar) ||
-      dataText[i].includes(upperChar) ||
-      dataText[i].includes(e.value)
-    ) {
+    if (dataText[i].toLocaleLowerCase().includes(lowerChar)) {
       list.innerHTML += `
           <li onmouseenter="colorBorderDefault(${this})">
           <span>${dataText[i]}</span>
@@ -93,13 +88,13 @@ function clearAll() {
 let li = document.querySelectorAll(".app__list li");
 
 const colors = [
+  "#40486D",
   "#1482b5",
   "#009868",
-  "#C19A6B",
   "#808000",
-  "#40486D",
-  "#FFD23F",
+  "#C19A6B",
   "#540D6E",
+  "#FFD23F",
   "#000",
 ];
 
@@ -118,7 +113,5 @@ window.onload = () => {
 };
 
 for (let i = 0; i < colorsS.length; i++) {
-  li.forEach((e) => () => {
-    
-  });
+  li.forEach((e) => () => {});
 }
