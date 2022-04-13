@@ -112,32 +112,8 @@ function clearAll() {
 function changeBorderColor() {
   let li = document.querySelectorAll(".app__list li");
 
-  const colors = [
-    "#40486D",
-    "#1482b5",
-    "#009868",
-    "#808000",
-    "#C19A6B",
-    "#540D6E",
-    "#FFD23F",
-    "#000",
-  ];
-
-  localStorage.colors = JSON.stringify(colors);
-
-  const colorsStorage = JSON.parse(localStorage.colors);
-
-  if (!localStorage.color || localStorage.color >= colors.length - 1) {
-    localStorage.color = -1;
-  }
-
-  window.onload = () => {
-    localStorage.color++;
-  };
-
   li.forEach((e) => {
-    e.style.borderColor = colors[localStorage.color];
-    localStorage.color++;
+    e.style.borderColor = "#" + Math.random().toString(16).slice(2, 8);
   });
 }
 
@@ -155,7 +131,7 @@ function showBatteryState() {
       batteryState.style.color = "var(--color-red)";
       batteryState.title = "Battery is low...";
     }
-    console.log(battery.charging);
+    console.log("Batter Charge is: " + battery.charging);
 
     battery.onlevelchange = () => {
       if (battery.charging) {
