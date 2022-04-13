@@ -144,10 +144,10 @@ function changeBorderColor() {
 // show battery state
 function showBatteryState() {
   let batteryState = document.querySelector(".batteryState");
+  let batteryTimeCharge = document.querySelector(".batteryTimeCharge");
 
   navigator.getBattery().then((battery) => {
     batteryState.innerHTML = `🔋: ${battery.level * 100}%`;
-    console.log(battery.level);
 
     if (battery.level >= 0.2) {
       batteryState.style.color = "var(--color-green)";
@@ -155,5 +155,16 @@ function showBatteryState() {
       batteryState.style.color = "var(--color-red)";
       batteryState.title = "Battery is low...";
     }
+    console.log(battery.charging);
+
+    battery.onlevelchange = () => {
+      if (battery.charging) {
+        document.querySelector(".batteryTimeCharge").innerHTML =
+          "Charging time: " + battery.chargingTime / 60 + " minutes";
+      } else {
+        document.querySelector(".batteryTimeCharge").innerHTML =
+          "Discharging time: " + battery.dischargingTime / 60 + " minutes";
+      }
+    };
   });
 }
