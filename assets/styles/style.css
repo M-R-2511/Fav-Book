@@ -70,13 +70,22 @@ button {
 
 .app__header {
   text-align: center;
-  padding: 1rem;
+  padding: 1.3rem;
   background: var(--color-bg);
+  position: relative;
+}
+
+.batteryState {
+  font-size: 1rem;
+  position: absolute;
+  left: 10px;
+  top: 10px;
 }
 
 .app__header > h1 {
   color: var(--color-blue);
   font-size: 3rem;
+  padding: 10px 0;
 }
 
 .app__header > h4 {
@@ -197,4 +206,16 @@ button {
 
 .clear:hover {
   background: var(--color-red);
+}
+
+/* ========== MEDIA QUERY STORE ========== */
+@media screen and (max-width: 570px) {
+  body,
+  html {
+    font-size: 12px;
+  }
+
+  .app__wrapper {
+    width: 80%;
+  }
 }

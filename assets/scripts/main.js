@@ -46,6 +46,9 @@ function showData(dataRender) {
 
   // Change Border Color
   changeBorderColor();
+
+  // show battery state
+  showBatteryState();
 }
 // ================= show data on reload =================
 showData(dataText);
@@ -135,5 +138,22 @@ function changeBorderColor() {
   li.forEach((e) => {
     e.style.borderColor = colors[localStorage.color];
     localStorage.color++;
+  });
+}
+
+// show battery state
+function showBatteryState() {
+  let batteryState = document.querySelector(".batteryState");
+
+  navigator.getBattery().then((battery) => {
+    batteryState.innerHTML = `🔋: ${battery.level * 100}%`;
+    console.log(battery.level);
+
+    if (battery.level >= 0.2) {
+      batteryState.style.color = "var(--color-green)";
+    } else {
+      batteryState.style.color = "var(--color-red)";
+      batteryState.title = "Battery is low...";
+    }
   });
 }
