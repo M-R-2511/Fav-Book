@@ -75,19 +75,25 @@ button {
   position: relative;
 }
 
-.batteryState {
+.battery {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.batteryState,
+.batteryTimeCharge,
+.batteryStateCharge {
   font-size: 1rem;
-  position: absolute;
-  left: 10px;
-  top: 10px;
 }
 
 .batteryTimeCharge {
-  font-size: 1rem;
-  position: absolute;
-  left: 100px;
-  top: 14px;
   color: var(--color-text);
+}
+
+.batteryStateCharge {
+  color: var(--color-blue);
 }
 
 .app__header > h1 {
