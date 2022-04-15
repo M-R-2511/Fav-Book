@@ -38,10 +38,13 @@ function showData(dataRender) {
   }
 
   // to show clear btn
-  if (dataText.length > 0) {
+  if (dataRender.length > 0) {
     clearBtn.style.transform = "translateY(0px)";
     clearBtn.innerHTML = "Clear: " + dataText.length;
     clearBtn.style.cursor = "pointer";
+  } else {
+    clearBtn.style.transform = "translateY(60px)";
+    clearBtn.style.cursor = "default";
   }
 
   // Change Border Color
@@ -104,8 +107,7 @@ function clearAll() {
   dataText = [];
   localStorage.data = JSON.stringify(dataText);
   list.innerHTML = "";
-  clearBtn.style.transform = "translateY(50px)";
-  clearBtn.style.cursor = "default";
+  showData(dataText);
 }
 
 // ================= Change border of colors =================

@@ -227,7 +227,7 @@ button {
   font-size: 1.6rem;
   height: 3rem;
   background: var(--color-blue);
-  transform: translateY(50px);
+  transform: translateY(60px);
 }
 
 .clear:hover {
