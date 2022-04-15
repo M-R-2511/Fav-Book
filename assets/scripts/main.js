@@ -142,10 +142,14 @@ function showBatteryState() {
     battery.onlevelchange = () => {
       if (battery.charging) {
         document.querySelector(".batteryTimeCharge").innerHTML =
-          "Charging time: " + battery.chargingTime / 60 + " minutes";
+          "Charging time: " +
+          Math.round(battery.chargingTime / 60) +
+          " minutes";
       } else {
         document.querySelector(".batteryTimeCharge").innerHTML =
-          "Discharging time: " + battery.dischargingTime / 60 + " minutes";
+          "Discharging time: " +
+          Math.round(battery.dischargingTime / 60) +
+          " minutes";
       }
     };
   });
