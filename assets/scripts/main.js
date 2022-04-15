@@ -19,23 +19,17 @@ if (localStorage.data) {
   localStorage.data = JSON.stringify(dataText);
 }
 
-// to save dataMatch here for comparison
-let temp;
 // ================= create elements =================
 function showData(dataRender) {
-  if (dataRender !== temp) {
-    dataRender = JSON.parse(localStorage.data);
-  }
-
   list.innerHTML = "";
-  for (let i = 0; i < dataRender.length; i++) {
+  dataRender.forEach((book, index) => {
     list.innerHTML += `
         <li>
-            <span>${dataRender[i]}</span>
-            <button onclick="deleteItem(${i})">delete</button>
+            <span>${book}</span>
+            <button onclick="deleteItem(${index})">delete</button>
         </li>
       `;
-  }
+  });
 
   // to show clear btn
   if (dataRender.length > 0) {
@@ -66,7 +60,7 @@ function addBook(e, form) {
 
   dataText.push(textInput.value);
   localStorage.data = JSON.stringify(dataText);
-
+  dataText = JSON.parse(localStorage.data);
   showData(dataText);
 
   // form.reset();
@@ -74,27 +68,36 @@ function addBook(e, form) {
 }
 
 // ================= Delete one item =================
-function deleteItem(e) {
-  dataText.splice(e, 1);
+function deleteItem(bookIndex) {
+  dataText.splice(bookIndex, 1);
   localStorage.data = JSON.stringify(dataText);
-
+  dataText = JSON.parse(localStorage.data);
   showData(dataText);
 }
 
 // ================= Search items =================
-function search(e) {
-  let lowerChar = e.value.toLowerCase();
+function search(searchInput) {
+  value = searchInput.value;
+
+  let lowerChar = value.toLowerCase();
   let dataTextMatch = [];
 
-  list.innerHTML = "";
-  for (let i = 0; i < dataText.length; i++) {
-    if (dataText[i].toLocaleLowerCase().includes(lowerChar)) {
-      dataTextMatch.push(dataText[i]);
-    }
-  }
+  dataTextMatch = dataText.filter((book) => {
+    return book.toLowerCase().includes(lowerChar);
+  });
 
-  temp = dataTextMatch;
-  return showData(dataTextMatch);
+  dataTextMatch = dataTextMatch.map((book) => {
+    return book
+      .split("")
+      .map((char) => {
+        return lowerChar.includes(char.toLowerCase())
+          ? `<mark>${char}</mark>`
+          : char;
+      })
+      .join("");
+  });
+
+  showData(dataTextMatch);
 }
 
 // ================= form search =================

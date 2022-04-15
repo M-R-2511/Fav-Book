@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["onlevelchange"]
+  "cSpell.words": ["onlevelchange"],
+  "livePreview.defaultPreviewPath": "/index.html"
 }
