@@ -108,8 +108,7 @@ function handelSubmit(e) {
 // ================= Delete all items =================
 function clearAll() {
   dataText = [];
-  localStorage.data = JSON.stringify(dataText);
-  list.innerHTML = "";
+  localStorage.clear();
   showData(dataText);
 }
 
