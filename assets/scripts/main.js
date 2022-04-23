@@ -3,20 +3,18 @@ let textInput = document.querySelector(".add-book");
 let clearBtn = document.querySelector(".clear");
 
 // ================= Data will be saved here =================
-let dataText;
+let dataText = checkLocalStorage() || [
+  "The Hunger Games",
+  "A Little Princess",
+  "Isolated",
+  "Moon Knight",
+];
 
 // ================= Check LocalStorage =================
-if (localStorage.data) {
-  dataText = JSON.parse(localStorage.data);
-} else {
-  dataText = [
-    "The Hunger Games",
-    "A Little Princess",
-    "Isolated",
-    "Moon Knight",
-  ];
-
-  localStorage.data = JSON.stringify(dataText);
+function checkLocalStorage() {
+  if (localStorage.data) {
+    return JSON.parse(localStorage.data);
+  }
 }
 
 // ================= create elements =================
@@ -73,6 +71,9 @@ function deleteItem(bookIndex) {
   localStorage.data = JSON.stringify(dataText);
   dataText = JSON.parse(localStorage.data);
   showData(dataText);
+  if (!localStorage.data) {
+    localStorage.clear();
+  }
 }
 
 // ================= Search items =================
