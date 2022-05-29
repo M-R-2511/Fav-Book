@@ -139,7 +139,7 @@ function showBatteryState() {
     }
     // Battery Charge State
     document.querySelector(".batteryStateCharge").innerHTML =
-      "Batter Charge is: " + battery.charging;
+      "Battery Charge is: " + battery.charging;
 
     // Battery Charge State
     battery.onlevelchange = () => {
